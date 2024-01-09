@@ -1,0 +1,67 @@
+﻿@page
+@model pandemie.Pages.Fonduri.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Fond</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Fond.ID" />
+            <div class="form-group">
+                <label asp-for="Fond.Ordin" class="control-label"></label>
+                <input asp-for="Fond.Ordin" class="form-control" />
+                <span asp-validation-for="Fond.Ordin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <label asp-for="Fond.Data_ordin" class="control-label"></label>
+                <input asp-for="Fond.Data_ordin" class="form-control" />
+                <span asp-validation-for="Fond.Data_ordin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fond.Masti" class="control-label"></label>
+                <input asp-for="Fond.Masti" class="form-control" />
+                <span asp-validation-for="Fond.Masti" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fond.Vaccinuri" class="control-label"></label>
+                <input asp-for="Fond.Vaccinuri" class="form-control" />
+                <span asp-validation-for="Fond.Vaccinuri" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fond.Testare" class="control-label"></label>
+                <input asp-for="Fond.Testare" class="form-control" />
+                <span asp-validation-for="Fond.Testare" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fond.Ajutor_intreprinderi" class="control-label"></label>
+                <input asp-for="Fond.Ajutor_intreprinderi" class="form-control" />
+                <span asp-validation-for="Fond.Ajutor_intreprinderi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fond.TaraID" class="control-label">Tara</label>
+                <select asp-for="Fond.TaraID" class="form-control" asp-items="ViewBag.TaraID">
+                </select>
+                <span asp-validation-for="Fond.TaraID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

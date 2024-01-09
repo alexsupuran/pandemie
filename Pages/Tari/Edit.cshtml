@@ -1,0 +1,45 @@
+﻿@page
+@model pandemie.Pages.Tari.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Tara</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Tara.ID" />
+            <div class="form-group">
+                <label asp-for="Tara.Name" class="control-label"></label>
+                <input asp-for="Tara.Name" class="form-control" />
+                <span asp-validation-for="Tara.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tara.Cazuri" class="control-label"></label>
+                <input asp-for="Tara.Cazuri" class="form-control" />
+                <span asp-validation-for="Tara.Cazuri" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tara.Morti" class="control-label"></label>
+                <input asp-for="Tara.Morti" class="form-control" />
+                <span asp-validation-for="Tara.Morti" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

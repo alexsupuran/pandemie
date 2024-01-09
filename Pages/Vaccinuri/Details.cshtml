@@ -1,0 +1,43 @@
+﻿@page
+@model pandemie.Pages.Vaccinuri.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Vaccin</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vaccin.Nume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vaccin.Nume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vaccin.Pret_achizitie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vaccin.Pret_achizitie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vaccin.Data_aprobare)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vaccin.Data_aprobare)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vaccin.Informatii)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vaccin.Informatii)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Vaccin?.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

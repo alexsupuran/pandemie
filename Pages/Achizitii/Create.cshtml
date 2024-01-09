@@ -1,0 +1,47 @@
+﻿@page
+@model pandemie.Pages.Achizitii.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Achizitie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Achizitie.MembruID" class="control-label">Membru</label>
+                <select asp-for="Achizitie.MembruID" class ="form-control" asp-items="ViewBag.MembruID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Achizitie.VaccinID" class="control-label">Vaccin</label>
+                <select asp-for="Achizitie.VaccinID" class ="form-control" asp-items="ViewBag.VaccinID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Achizitie.Cantitate" class="control-label"></label>
+                <input asp-for="Achizitie.Cantitate" class="form-control" />
+                <span asp-validation-for="Achizitie.Cantitate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Achizitie.Data_achizitie" class="control-label"></label>
+                <input asp-for="Achizitie.Data_achizitie" class="form-control" />
+                <span asp-validation-for="Achizitie.Data_achizitie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

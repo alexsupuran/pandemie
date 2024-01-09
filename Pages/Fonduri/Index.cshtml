@@ -1,0 +1,86 @@
+﻿@page
+@model pandemie.Pages.Fonduri.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Gaseste fondul dupa ordin / tara:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Inapoi la lista completa de fonduri</a>
+        </p>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.OrdinSort">
+                @Html.DisplayNameFor(model => model.Fond[0].Ordin)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fond[0].Data_ordin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fond[0].Masti)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fond[0].Vaccinuri)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fond[0].Testare)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fond[0].Ajutor_intreprinderi)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.TaraSort">
+                @Html.DisplayNameFor(model => model.Fond[0].Tara)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Fond) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ordin)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Data_ordin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Masti)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vaccinuri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Testare)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ajutor_intreprinderi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tara.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

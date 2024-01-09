@@ -1,0 +1,46 @@
+﻿@page
+@model pandemie.Pages.Achizitii.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Achizitie</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Achizitie.Membru)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Achizitie.Membru.NumeComplet)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Achizitie.Vaccin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Achizitie.Vaccin.Nume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Achizitie.Cantitate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Achizitie.Cantitate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Achizitie.Data_achizitie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Achizitie.Data_achizitie)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Achizitie.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

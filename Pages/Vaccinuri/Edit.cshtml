@@ -1,0 +1,74 @@
+﻿@page
+@model pandemie.Pages.Vaccinuri.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Vaccin</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Vaccin.ID" />
+            <div class="form-group">
+                <label asp-for="Vaccin.Nume" class="control-label"></label>
+                <input asp-for="Vaccin.Nume" class="form-control" />
+                <span asp-validation-for="Vaccin.Nume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vaccin.Pret_achizitie" class="control-label"></label>
+                <input asp-for="Vaccin.Pret_achizitie" class="form-control" />
+                <span asp-validation-for="Vaccin.Pret_achizitie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vaccin.Data_aprobare" class="control-label"></label>
+                <input asp-for="Vaccin.Data_aprobare" class="form-control" />
+                <span asp-validation-for="Vaccin.Data_aprobare" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="table">
+                    <table>
+                    <tr>
+                    @{
+                    int cnt = 0;
+                    foreach (var cat in Model.AssignedTipDataList)
+                    {
+                    if (cnt++ % 3 == 0)
+                    {
+                    @:</tr><tr>
+                    }
+                    @:<td>
+                    <input type="checkbox"name="selectedTipuri"value="@cat.TipID"
+                            @(Html.Raw(cat.Assigned ?
+                             "checked=\"checked\"" : "")) />
+                    @cat.TipID @: @cat.Nume
+                    @:</td>
+                    }
+                    @:</tr>
+                    }
+                    </table>
+                    </div>
+                    </div>
+            <div class="form-group">
+                <label asp-for="Vaccin.Informatii" class="control-label"></label>
+                <input asp-for="Vaccin.Informatii" class="form-control" />
+                <span asp-validation-for="Vaccin.Informatii" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,37 @@
+﻿@page
+@model pandemie.Pages.Tari.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Tara</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tara.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tara.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tara.Cazuri)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tara.Cazuri)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tara.Morti)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tara.Morti)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Tara?.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
